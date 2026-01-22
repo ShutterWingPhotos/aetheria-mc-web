@@ -9,6 +9,9 @@ const translations = {
         "join-title": "Join the Server",
         "join-desc": "Connect to our Minecraft server and start building!",
         "join-btn": "Join Now",
+        "copy-hint": "Click to copy server address",
+        "nav-home": "Home",
+        "nav-about": "About",
         "dynmap-title": "Dynmap",
         "dynmap-desc": "Explore the world map in real-time.",
         "dynmap-btn": "View Map",
@@ -30,6 +33,8 @@ const translations = {
         "feature-community-desc": "Join a friendly and supportive player community.",
         "feature-events": "Regular Events",
         "feature-events-desc": "Participate in exciting server events and competitions.",
+        "roadmap-title": "Development Roadmap",
+        "team-title": "Our Team",
         "footer": "© 2026 LeoD.Aviation All rights reserved."
     },
     zh: {
@@ -39,12 +44,15 @@ const translations = {
         "join-title": "加入服务器",
         "join-desc": "连接我们的 Minecraft 服务器，开始建造！",
         "join-btn": "立即加入",
-        "dynmap-title": "Dynmap",
-        "dynmap-desc": "实时探索世界地图。",
+        "copy-hint": "点击复制服务器地址",
+        "nav-home": "首页",
+        "nav-about": "关于",
+        "dynmap-title": "服务动态地图",
+        "dynmap-desc": "实时查看我们的世界地图与玩家。",
         "dynmap-btn": "查看地图",
-        "transit-title": "交通系统",
-        "transit-desc": "导航我们广泛的铁路和运输网络。",
-        "transit-btn": "交通指南",
+        "transit-title": "交通系统地图",
+        "transit-desc": "查看我们铁路和运输网络，以及提前规划您的行程！",
+        "transit-btn": "交通指南地图",
         "status-title": "服务器状态",
         "status-desc": "检查当前服务器状态和玩家数量。",
         "status-online": "在线:",
@@ -53,20 +61,21 @@ const translations = {
         "online-players": "在线玩家",
         "about-title": "关于 DragonSea MC",
         "about-subtitle": "了解更多关于我们的社区和功能",
-        "about-desc": "DragonSea MC 是一个充满活力的 Minecraft 服务器社区，致力于提供沉浸式和创造性的游戏体验。我们的服务器具有自定义插件、活跃的管理和来自世界各地的欢迎玩家社区。",
+        "about-desc": "DragonSea Minecraft 服务器是一个城市模组（Forge）服务器，目前状态还在建设中，我们的目标是在Minecraft（也就是我的世界）这款游戏中创建一个完整的虚构城市与国家，并致力于提供沉浸式和创造性的游戏体验。",
         "feature-creative": "创造性建筑",
         "feature-creative-desc": "释放您的创造力，无限建筑机会。",
         "feature-community": "活跃社区",
         "feature-community-desc": "加入友好和支持性的玩家社区。",
         "feature-events": "定期活动",
         "feature-events-desc": "参与激动人心的服务器活动和竞赛。",
+        "roadmap-title": "发展路线图",
+        "team-title": "我们的团队",
         "footer": "© 2026 LeoD.Aviation 版权所有。"
     }
 };
 
 // Detect language
-const userLang = navigator.language || navigator.userLanguage;
-let currentLang = userLang.startsWith('zh') ? 'zh' : 'en';
+let currentLang = localStorage.getItem('language') || (navigator.language.startsWith('zh') ? 'zh' : 'en');
 
 // Set language function
 function setLanguage(lang) {
@@ -86,6 +95,25 @@ function setLanguage(lang) {
     if (langBtn) {
         langBtn.textContent = lang === 'en' ? 'EN' : '中文';
     }
+    // Save to localStorage
+    localStorage.setItem('language', lang);
+}
+
+// Copy server address to clipboard
+function copyServerAddress() {
+    const address = 'mc.shutterwingphotos.cn';
+    navigator.clipboard.writeText(address).then(() => {
+        const copyLink = document.querySelector('.copy-link');
+        if (copyLink) {
+            const originalText = copyLink.textContent;
+            copyLink.textContent = currentLang === 'zh' ? '已复制！' : 'Copied!';
+            setTimeout(() => {
+                copyLink.textContent = originalText;
+            }, 2000);
+        }
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
 }
 
 // Keyboard shortcuts for language switching

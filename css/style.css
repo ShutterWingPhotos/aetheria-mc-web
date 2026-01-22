@@ -46,6 +46,12 @@ nav {
     height: 70px;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -93,9 +99,7 @@ header {
 }
 
 .lang-switcher {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
+    /* Removed absolute positioning to align with flex */
 }
 
 #lang-btn {
@@ -137,6 +141,9 @@ header p {
 main {
     flex: 1;
     padding: 4rem 2rem;
+}
+
+.home-main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -390,6 +397,35 @@ main {
     box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
 }
 
+.copy-link {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.copy-link:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: #00d4ff;
+    transform: translateY(-2px);
+}
+
+.link-card small {
+    display: block;
+    color: #b0b0b0;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
 footer {
     background: rgba(0, 0, 0, 0.8);
     color: #888;
@@ -403,6 +439,7 @@ footer {
     padding: 4rem 2rem;
     background: rgba(255, 255, 255, 0.02);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 4rem;
 }
 
 .about-container {
@@ -438,14 +475,28 @@ footer {
 .feature {
     background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 25px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00d4ff, #ff6b6b);
+    border-radius: 25px 25px 0 0;
 }
 
 .feature:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .feature h3 {
@@ -457,6 +508,182 @@ footer {
 .feature p {
     color: #b0b0b0;
     font-size: 1rem;
+}
+
+.roadmap-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 107, 107, 0.05));
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.roadmap-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+}
+
+.roadmap-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.roadmap-section h2 {
+    color: #00d4ff;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #00d4ff, #ff6b6b);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: 100%;
+    border-left: 15px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    width: calc(50% - 30px);
+    left: calc(50% + 30px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-content h3 {
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.timeline-content p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.team-section {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    margin-bottom: 4rem;
+}
+
+.team-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-section h2 {
+    color: #00d4ff;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00d4ff, #ff6b6b);
+    border-radius: 25px 25px 0 0;
+}
+
+.team-member:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.member-avatar {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.team-member h3 {
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.team-member p {
+    color: #b0b0b0;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* Responsive design */
@@ -501,9 +728,51 @@ footer {
     
     .about-section {
         padding: 2rem 1rem;
+        margin-bottom: 2rem;
     }
     
     .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .roadmap-section {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+        left: 60px;
+        text-align: left;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -15px;
+        border-left: none;
+        border-right: 15px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .timeline-content::before {
+        right: auto;
+        left: -15px;
+        border-right: 15px solid rgba(255, 255, 255, 0.1);
+        border-left: none;
+    }
+    
+    .team-section {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .team-grid {
         grid-template-columns: 1fr;
     }
 }
