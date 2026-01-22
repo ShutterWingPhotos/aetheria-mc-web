@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page-title">DragonSea Minecraft Server</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">DragonSea MC</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button id="lang-btn">EN</button>
+            </div>
+        </div>
+    </nav>
+    <header id="home">
+        <h1 data-i18n="title">DragonSea MC</h1>
+        <p data-i18n="subtitle">Your gateway to an epic Minecraft adventure</p>
+    </header>
+    <main>
+        <section class="links">
+            <div class="link-card status-card status-banner">
+                <h2 data-i18n="status-title">Server Status</h2>
+                <p data-i18n="status-desc">Check the current server status and player count.</p>
+                <div class="status-info">
+                    <p><span data-i18n="status-online">Online:</span> <span id="server-status" class="status-online">Loading...</span></p>
+                    <p><span data-i18n="status-players">Players:</span> <span id="player-count" class="player-count">0/100</span></p>
+                    <p><span data-i18n="status-latency">Latency:</span> <span id="latency" class="latency">--</span></p>
+                </div>
+                <div class="online-users" id="online-users" style="display: none;">
+                    <h3 data-i18n="online-players">Online Players</h3>
+                    <div class="user-list" id="user-list"></div>
+                </div>
+            </div>
+            <div class="link-card">
+                <h2 data-i18n="join-title">Join the Server</h2>
+                <p data-i18n="join-desc">Connect to our Minecraft server and start building!</p>
+                <a href="minecraft://mc.shutterwingphotos.cn:25565" class="btn" data-i18n="join-btn">mc.shutterwingphotos.cn:25565</a>
+            </div>
+            <div class="link-card">
+                <h2 data-i18n="dynmap-title">Dynmap</h2>
+                <p data-i18n="dynmap-desc">Explore the world map in real-time.</p>
+                <a href="http://124.220.159.111:8123/" class="btn" target="_blank" data-i18n="dynmap-btn">View Map</a>
+            </div>
+            <div class="link-card">
+                <h2 data-i18n="transit-title">Transit System</h2>
+                <p data-i18n="transit-desc">Navigate our extensive rail and transport network.</p>
+                <a href="http://124.220.159.111:8888/" class="btn" target="_blank" data-i18n="transit-btn">Transit Guide</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p data-i18n="footer">© 2026 LeoD.Aviation. All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
