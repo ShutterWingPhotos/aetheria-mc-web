@@ -325,6 +325,19 @@ main {
     background: rgba(255, 255, 255, 0.12);
 }
 
+.modpack-card {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 193, 7, 0.2));
+    border: 3px solid rgba(255, 107, 107, 0.5);
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+    opacity: 1 !important;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.3); }
+    50% { box-shadow: 0 0 50px rgba(255, 107, 107, 0.6); }
+    100% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.3); }
+}
+
 .status-card {
     background: rgba(255, 255, 255, 0.06);
 }

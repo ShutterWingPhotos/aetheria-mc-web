@@ -51,6 +51,10 @@ const translations = {
         "team-2-desc": "Lead Administrator",
         "team-3-name": "Community Manager",
         "team-3-desc": "Event Coordinator",
+        "server-address": "Server Address:",
+        "modpack-title": "⚠️ Download Modpack (REQUIRED)",
+        "modpack-desc": "Must-download: Get the official modpack to join our server!",
+        "modpack-btn": "Download Modpack",
         "footer": "© 2026 LeoD.Aviation. Built for the community."
     },
     zh: {
@@ -102,6 +106,10 @@ const translations = {
         "team-2-desc": "管理员 & 前置服务器提供者",
         "team-3-name": "社区经理",
         "team-3-desc": "活动策划",
+        "server-address": "服务器地址:",
+        "modpack-title": "⚠️ 下载模组包 (必须)",
+        "modpack-desc": "必须下载：获取官方模组包加入我们的服务器！",
+        "modpack-btn": "下载模组包",
         "footer": "© 2026 LeoD.Aviation 版权所有 · 为社区而建。"
     }
 };
