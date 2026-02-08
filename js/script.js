@@ -55,7 +55,7 @@ const translations = {
         "modpack-title": "⚠️ Download Modpack (REQUIRED)",
         "modpack-desc": "Must-download: Get the official modpack to join our server!",
         "modpack-btn": "Download Modpack",
-        "footer": "© 2026 LeoD.Aviation. Built for the community."
+        "footer": "© 2026 DragonSea MC. Built for the community."
     },
     zh: {
         "page-title": "龙海 Minecraft",
@@ -110,7 +110,7 @@ const translations = {
         "modpack-title": "⚠️ 下载模组包 (必须)",
         "modpack-desc": "必须下载：获取官方模组包加入我们的服务器！",
         "modpack-btn": "下载模组包",
-        "footer": "© 2026 LeoD.Aviation 版权所有 · 为社区而建。"
+        "footer": "© 2026 DragonSea MC 版权所有 · 为社区而建。"
     }
 };
 
